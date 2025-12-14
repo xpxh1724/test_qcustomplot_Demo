@@ -11,9 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -27,17 +30,29 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout_4;
     QSplitter *splitter;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QCustomPlot *customPlot;
     QPushButton *scatterDiagramBtn;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QCustomPlot *customPlot2;
     QPushButton *lineChartBtn;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_3;
     QCustomPlot *customPlot3;
+    QWidget *btnWaterFallWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *startWaterfall;
+    QPushButton *stopWaterfall;
+    QPushButton *clearWaterfall;
+    QWidget *btnWaterFallWidget2;
+    QHBoxLayout *horizontalLayout_2;
+    QSpinBox *rate;
+    QLabel *label;
+    QPushButton *setWaterfallUpdateRate;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -53,55 +68,131 @@ public:
 "}"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        verticalLayout_3 = new QVBoxLayout(centralWidget);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_4 = new QVBoxLayout(centralWidget);
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QString::fromUtf8("splitter"));
         splitter->setOrientation(Qt::Horizontal);
-        widget = new QWidget(splitter);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(splitter);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        customPlot = new QCustomPlot(widget);
+        customPlot = new QCustomPlot(layoutWidget);
         customPlot->setObjectName(QString::fromUtf8("customPlot"));
 
         verticalLayout->addWidget(customPlot);
 
-        scatterDiagramBtn = new QPushButton(widget);
+        scatterDiagramBtn = new QPushButton(layoutWidget);
         scatterDiagramBtn->setObjectName(QString::fromUtf8("scatterDiagramBtn"));
+        scatterDiagramBtn->setMinimumSize(QSize(100, 20));
 
         verticalLayout->addWidget(scatterDiagramBtn);
 
-        splitter->addWidget(widget);
-        widget1 = new QWidget(splitter);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        verticalLayout_2 = new QVBoxLayout(widget1);
+        splitter->addWidget(layoutWidget);
+        layoutWidget1 = new QWidget(splitter);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        customPlot2 = new QCustomPlot(widget1);
+        customPlot2 = new QCustomPlot(layoutWidget1);
         customPlot2->setObjectName(QString::fromUtf8("customPlot2"));
 
         verticalLayout_2->addWidget(customPlot2);
 
-        lineChartBtn = new QPushButton(widget1);
+        lineChartBtn = new QPushButton(layoutWidget1);
         lineChartBtn->setObjectName(QString::fromUtf8("lineChartBtn"));
+        lineChartBtn->setMinimumSize(QSize(100, 20));
 
         verticalLayout_2->addWidget(lineChartBtn);
 
-        splitter->addWidget(widget1);
-        customPlot3 = new QCustomPlot(splitter);
+        splitter->addWidget(layoutWidget1);
+        widget = new QWidget(splitter);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        verticalLayout_3 = new QVBoxLayout(widget);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        customPlot3 = new QCustomPlot(widget);
         customPlot3->setObjectName(QString::fromUtf8("customPlot3"));
         customPlot3->setMinimumSize(QSize(200, 0));
-        splitter->addWidget(customPlot3);
 
-        verticalLayout_3->addWidget(splitter);
+        verticalLayout_3->addWidget(customPlot3);
+
+        btnWaterFallWidget = new QWidget(widget);
+        btnWaterFallWidget->setObjectName(QString::fromUtf8("btnWaterFallWidget"));
+        btnWaterFallWidget->setMaximumSize(QSize(16777215, 30));
+        horizontalLayout = new QHBoxLayout(btnWaterFallWidget);
+        horizontalLayout->setSpacing(10);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        startWaterfall = new QPushButton(btnWaterFallWidget);
+        startWaterfall->setObjectName(QString::fromUtf8("startWaterfall"));
+        startWaterfall->setMinimumSize(QSize(100, 20));
+
+        horizontalLayout->addWidget(startWaterfall);
+
+        stopWaterfall = new QPushButton(btnWaterFallWidget);
+        stopWaterfall->setObjectName(QString::fromUtf8("stopWaterfall"));
+        stopWaterfall->setMinimumSize(QSize(100, 20));
+
+        horizontalLayout->addWidget(stopWaterfall);
+
+        clearWaterfall = new QPushButton(btnWaterFallWidget);
+        clearWaterfall->setObjectName(QString::fromUtf8("clearWaterfall"));
+        clearWaterfall->setMinimumSize(QSize(100, 20));
+
+        horizontalLayout->addWidget(clearWaterfall);
+
+
+        verticalLayout_3->addWidget(btnWaterFallWidget);
+
+        btnWaterFallWidget2 = new QWidget(widget);
+        btnWaterFallWidget2->setObjectName(QString::fromUtf8("btnWaterFallWidget2"));
+        btnWaterFallWidget2->setMaximumSize(QSize(16777215, 30));
+        horizontalLayout_2 = new QHBoxLayout(btnWaterFallWidget2);
+        horizontalLayout_2->setSpacing(10);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        rate = new QSpinBox(btnWaterFallWidget2);
+        rate->setObjectName(QString::fromUtf8("rate"));
+        rate->setMinimumSize(QSize(100, 20));
+        rate->setMaximumSize(QSize(100, 16777215));
+        rate->setMinimum(1);
+        rate->setMaximum(100);
+        rate->setStepType(QAbstractSpinBox::DefaultStepType);
+
+        horizontalLayout_2->addWidget(rate);
+
+        label = new QLabel(btnWaterFallWidget2);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMaximumSize(QSize(20, 16777215));
+        label->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(label);
+
+        setWaterfallUpdateRate = new QPushButton(btnWaterFallWidget2);
+        setWaterfallUpdateRate->setObjectName(QString::fromUtf8("setWaterfallUpdateRate"));
+        setWaterfallUpdateRate->setMinimumSize(QSize(100, 20));
+
+        horizontalLayout_2->addWidget(setWaterfallUpdateRate);
+
+
+        verticalLayout_3->addWidget(btnWaterFallWidget2);
+
+        splitter->addWidget(widget);
+
+        verticalLayout_4->addWidget(splitter);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -125,6 +216,11 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         scatterDiagramBtn->setText(QApplication::translate("MainWindow", "scatterDiagramBtn", nullptr));
         lineChartBtn->setText(QApplication::translate("MainWindow", "lineChartBtn", nullptr));
+        startWaterfall->setText(QApplication::translate("MainWindow", "startWaterfall", nullptr));
+        stopWaterfall->setText(QApplication::translate("MainWindow", "stopWaterfall", nullptr));
+        clearWaterfall->setText(QApplication::translate("MainWindow", "clearWaterfall", nullptr));
+        label->setText(QApplication::translate("MainWindow", "ms", nullptr));
+        setWaterfallUpdateRate->setText(QApplication::translate("MainWindow", "setWaterfallUpdateRate", nullptr));
     } // retranslateUi
 
 };
